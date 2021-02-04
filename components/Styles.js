@@ -5,6 +5,9 @@ export default {
     blueDark: '#6767ac',
 
     // elements
+    views: {
+        marginVertical: 20
+    },
     container: {
         margin: 30
     },
