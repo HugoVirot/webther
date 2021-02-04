@@ -14,4 +14,9 @@ export default {
     title: {
         fontSize: 20
     },
+    card:{
+        backgroundColor:'rgba(56, 172, 236, 1)',
+        borderWidth:0,
+        borderRadius:20
+    }
 }

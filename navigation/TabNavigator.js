@@ -63,6 +63,7 @@ export default class TabNavigator extends React.Component {
                     tabBarOptions={{
                         activeTintColor: '#6767ac',
                         inactiveTintColor: '#7abaf9',
+                        showLabel: false,
                     }}
                 >
                     <Tab.Screen name="Recherche" component={SearchScreen} />
