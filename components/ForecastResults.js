@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, SafeAreaView, FlatList } from 'react-native'
+import { Text, SafeAreaView, FlatList, ScrollView } from 'react-native'
 import ForecastCard from './ForecastCard';
 
 
@@ -18,22 +18,25 @@ export default class Results extends React.Component {
             else {
                 return (
                     <SafeAreaView>
-                        <FlatList
-                            data={objForecast.list}
-                            style={{ marginTop: 20 }} 
-                            keyExtractor={item => item.dt_text} 
-                            renderItem={({ item }) => 
-                                <ForecastCard 
-                                detail={item} 
-                                location={objForecast.city.name} />}
+                        <ScrollView horizontal={true}>
+                            <FlatList
+                                horizontal={true}
+                                data={objForecast.list}
+                                style={{ marginTop: 20 }}
+                                keyExtractor={item => item.dt_text}
+                                renderItem={({ item }) =>
+                                    <ForecastCard
+                                        detail={item}
+                                        location={objForecast.city.name} />}
                             />
+                        </ScrollView>
                     </SafeAreaView>
                 )
             }
         }
         else {
             return (
-                        <Text></Text>
+                <Text></Text>
             )
         }
     }

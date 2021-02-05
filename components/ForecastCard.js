@@ -7,7 +7,7 @@ export default class ForecastCard extends React.Component {
     render() {
         let time;
         // Create a new date from the passed date time
-        var date = new Date(this.props.detail.dt * 1000);
+        var date = new Date(this.props.detail.dt * 1000);  
         // Hours part from the timestamp
         var hours = date.getHours();
         // Minutes part from the timestamp
@@ -28,6 +28,5 @@ export default class ForecastCard extends React.Component {
                 </View>
             </Card>
         )
-
     }
 }
