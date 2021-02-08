@@ -43,14 +43,15 @@ export default class Search extends React.Component {
     }
 
     render() {
-        const searchIcon = <Icon name="search-location" size={40} color="black"/>;
+        const searchIcon = <Icon name="search-location" size={45} color="black"/>;
         return (
             <View>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "end" }}>
+                <View style={{ margin: 10, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
                     <TextInput
                         onChangeText={(text) => this.setLocation(text)}
-                        style={{ borderColor: 'gray', borderWidth: 1, marginBottom: 20, flex: 0.8 }}
-                        placeholder="Villes, communes, codes postaux"
+                        style={{ borderColor: 'gray', marginBottom: 20, flex: 0.9, fontSize: 20 }}
+                        placeholder="Recherchez une ville"
+                        autoFocus={true}
                     />
 
                     <Button 

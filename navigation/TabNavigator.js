@@ -11,7 +11,7 @@ import User from '../views/User'
 
 function SearchScreen() {
     return (
-        <View style={Styles.views}>
+        <View>
             <StatusBar hidden={true} animated={true} />
             <Search />
         </View>
