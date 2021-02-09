@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, TextInput, Text } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux'
 import HeaderUserName from './Header'

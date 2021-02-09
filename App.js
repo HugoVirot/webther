@@ -5,10 +5,11 @@ import TabNavigator from './navigation/TabNavigator.js'
 import { Provider } from 'react-redux'
 import { init } from '@rematch/core'
 import { nameModel } from './models/NameModel'
+import { citiesModel } from './models/CitiesModel'
 import 'redux'
 
 const store = init({
-  models: { nameModel },
+  models: { nameModel, citiesModel },
 });
 
 

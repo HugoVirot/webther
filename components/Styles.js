@@ -19,13 +19,20 @@ export default {
         fontSize: 20
     },
     card:{
-        backgroundColor:'rgba(56, 172, 236, 1)',
+        backgroundColor: '#bcbcbe',
         borderWidth:0,
         borderRadius:20
     },
 
-    // specific
+    // search
     searchBtn: {
         color: 'rgba(56, 172, 236, 1)'
-    }
+    },
+
+    // weatherresluts
+    temperature: {
+        color: '#c3c4c6',
+        marginHorizontal: 5,
+        fontStyle: 'italic',
+    },
 }

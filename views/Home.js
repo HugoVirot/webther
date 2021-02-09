@@ -1,12 +1,36 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
+import { connect } from 'react-redux'
+import { ListItem } from 'react-native-elements'
+import Header from './Header'
 
-export default class Home extends React.Component {
-    render() {
-        return (
+const Home = props => {
+
+    console.log(props.citiesInformations);
+
+    const list = props.cities;
+
+    return (
         <View>
-            <Text>Home</Text>
+            <Header />
+            {
+                list.map((city) => (
+                    <ListItem key={props.citiesInformations[city].id} bottomDivider>
+                        <ListItem.Content>
+                            <ListItem.Title>
+                                <Image source={{ uri: `http://openweathermap.org/img/w/${props.citiesInformations[city].weather[0].icon}.png` }} style={{ height: 70, width: 70 }} />
+                                <Text>{props.citiesInformations[city].name}</Text>
+                            </ListItem.Title>
+                            <ListItem.Subtitle>
+                                Temp : {props.citiesInformations[city].main.temp}°C /
+                                Ressenti : {props.citiesInformations[city].main.feels_like}
+                            </ListItem.Subtitle>
+                        </ListItem.Content>
+                    </ListItem>
+                ))
+            }
         </View>
-        )
-    }
+    )
 }
+
+export default connect((state) => state.citiesModel)(Home);

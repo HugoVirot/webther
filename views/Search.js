@@ -6,6 +6,8 @@ import { fetchWeather, fetchForecast } from '../components/APIrequests'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Button } from 'react-native-elements';
 
+import Header from './Header'
+
 export default class Search extends React.Component {
 
     constructor(props) {
@@ -46,7 +48,8 @@ export default class Search extends React.Component {
         const searchIcon = <Icon name="search-location" size={45} color="black"/>;
         return (
             <View>
-                <View style={{ margin: 10, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <Header style={{ marginBottom: 10}} />
+                <View style={{ marginHorizontal: 10, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
                     <TextInput
                         onChangeText={(text) => this.setLocation(text)}
                         style={{ borderColor: 'gray', marginBottom: 20, flex: 0.9, fontSize: 20 }}

@@ -8,7 +8,6 @@ export default class Results extends React.Component {
     render() {
         if (this.props.reportForecast) {
             const objForecast = this.props.reportForecast;
-            console.log(objForecast.list);
 
             if (objForecast.cod == '404') {
                 return (
@@ -16,8 +15,9 @@ export default class Results extends React.Component {
                 )
             }
             else {
+                console.log(objForecast);
                 return (
-                    <SafeAreaView>
+                    <SafeAreaView style={{ marginTop: 30 }}>
                         <ScrollView horizontal={true}>
                             <FlatList
                                 horizontal={true}
@@ -27,7 +27,8 @@ export default class Results extends React.Component {
                                 renderItem={({ item }) =>
                                     <ForecastCard
                                         detail={item}
-                                        location={objForecast.city.name} />}
+                                        location={objForecast.city.name} />
+                                    }
                             />
                         </ScrollView>
                     </SafeAreaView>

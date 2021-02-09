@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
+import AddCityBtn from './AddCityBtn';
 import Styles from './Styles';
 
 export default class Results extends React.Component {
@@ -7,7 +8,6 @@ export default class Results extends React.Component {
     render() {
         if (this.props.reportWeather) {
             const objWeather = this.props.reportWeather;
-            console.log(objWeather);
 
             if (objWeather.cod == '404') {
                 return (
@@ -18,18 +18,39 @@ export default class Results extends React.Component {
                 return (
                     <View>
                         <View>
-                            <Text>Recherche pour : {this.props.location}</Text>
+                            <Text style={{ marginBottom: 15, fontWeight: 'bold', fontSize: 50 }}>
+                                {objWeather.name}
+                            </Text>
+                            <AddCityBtn searchedCity={objWeather.name} />
                         </View>
-                        <View style={Styles.thinContainer}>
-                            <Text style={{ marginVertical: 20 }}>{objWeather.name}</Text>
-                            <Text>{objWeather.weather[0].description}</Text>
-                            <Image source={{ uri: img }} style={{ height: 100, width: 100, backgroundColor: '#7d7d7f' }} />
-                            <Text>Temperature actuelle : {objWeather.main.temp}°C</Text>
-                            <Text>Ressenti : {objWeather.main.feels_like}°C</Text>
-                            <Text>Température minimum : {objWeather.main.temp_min}°C</Text>
-                            <Text>Température maximum : {objWeather.main.temp_max}°C</Text>
-                            <Text>Humidité : {objWeather.main.humidity}%</Text>
-                            <Text></Text>
+
+                        <View style={{ alignItems: 'center' }}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <Image source={{ uri: img }} style={{ height: 70, width: 70 }} />
+                                <Text style={{ marginLeft: 10 }}>
+                                    {objWeather.weather[0].description}
+                                </Text>
+                            </View>
+
+                            <View style={{ alignItems: "center" }}>
+                                <Text style={{ color: '#c3c4c6', fontStyle: 'italic', marginBottom: 20 }}>
+                                    Humidité : {objWeather.main.humidity}%
+                                </Text>
+                                <Text style={{ fontSize: 60, fontWeight: 'bold' }}>
+                                    {objWeather.main.temp}°C
+                                </Text>
+                                <View style={{ flexDirection: "row" }}>
+                                    <Text style={Styles.temperature}>
+                                        Ressenti : {objWeather.main.feels_like}°C
+                                    </Text>
+                                    <Text style={Styles.temperature}>
+                                        Min. : {objWeather.main.temp_min}°C
+                                    </Text>
+                                    <Text style={Styles.temperature}>
+                                        Max. : {objWeather.main.temp_max}°C
+                                    </Text>
+                                </View>
+                            </View>
                         </View>
                     </View>
                 )

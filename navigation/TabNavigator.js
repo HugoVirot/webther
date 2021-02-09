@@ -20,7 +20,7 @@ function SearchScreen() {
 
 function HomeScreen() {
     return (
-        <View style={Styles.views}>
+        <View>
             <StatusBar hidden={true} animated={true} />
             <Home />
         </View>
@@ -29,7 +29,7 @@ function HomeScreen() {
 
 function UserScreen() {
     return (
-        <View style={Styles.views}>
+        <View>
             <StatusBar hidden={true} animated={true} />
             <User />
         </View>
