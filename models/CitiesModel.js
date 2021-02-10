@@ -33,6 +33,12 @@ export const citiesModel = {
         async showGeoloc({lat, long}) {
             const weather = await fetchGeolocWeather(lat, long);
             dispatch.citiesModel.setGeoloc(weather);
+        },
+        async removeCity({city}) {
+            const newCities = citiesModel.state.cities;
+            const index = newCities.indexOf(city);
+            newCities.splice(index, 1);
+            dispatch.citiesModel.setCities(newCities);
         }
     })
 }

@@ -2,18 +2,21 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { Text, Divider } from 'react-native-elements';
 import Moment from 'react-moment';
+import 'moment/locale/fr';
+
 
 export default class ForecastCard extends React.Component {
-    
+
     render() {
         let time;
         // Create a new date from the passed date time
-        const date = new Date(this.props.detail.dt * 1000);  
+        const date = new Date(this.props.detail.dt * 1000);
         // Hours part from the timestamp
         const hours = date.getHours();
         // Minutes part from the timestamp
         const minutes = "0" + date.getMinutes();
         time = hours + ':' + minutes.substr(-2);
+        Moment.globalLocale = 'fr';
 
         return (
             <View>

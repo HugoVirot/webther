@@ -27,28 +27,24 @@ export default class Search extends React.Component {
     async getWeather() {
         const response = await fetchWeather(this.state.location);
         if (response) {
-            this.setState({ reportWeather: response },
-                () => {
-                    console.log(this.state.reportWeather)
-                });
+            this.setState({ reportWeather: response }
+            );
         }
     }
 
     async getForecast() {
         const response = await fetchForecast(this.state.location);
         if (response) {
-            this.setState({ reportForecast: response },
-                () => {
-                    console.log('test')
-                });
+            this.setState({ reportForecast: response }
+            );
         }
     }
 
     render() {
-        const searchIcon = <Icon name="search-location" size={45} color="black"/>;
+        const searchIcon = <Icon name="search-location" size={45} color="black" />;
         return (
             <View>
-                <Header style={{ marginBottom: 10}} />
+                <Header style={{ marginBottom: 10 }} />
                 <View style={{ marginHorizontal: 10, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
                     <TextInput
                         onChangeText={(text) => this.setLocation(text)}
@@ -57,10 +53,10 @@ export default class Search extends React.Component {
                         autoFocus={true}
                     />
 
-                    <Button 
-                    type="clear" 
-                    onPress={() => this.getWeather() && this.getForecast()} 
-                    icon={searchIcon} />
+                    <Button
+                        type="clear"
+                        onPress={() => this.getWeather() && this.getForecast()}
+                        icon={searchIcon} />
                 </View>
 
                 <WeatherResults

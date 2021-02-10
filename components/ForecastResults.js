@@ -15,7 +15,6 @@ export default class Results extends React.Component {
                 )
             }
             else {
-                console.log(objForecast);
                 return (
                     <SafeAreaView style={{ marginTop: 30 }}>
                         <ScrollView horizontal={true}>
