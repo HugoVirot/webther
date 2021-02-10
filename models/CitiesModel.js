@@ -1,4 +1,4 @@
-import { fetchWeather } from '../components/APIrequests'
+import { fetchWeather, fetchGeolocWeather } from '../components/APIrequests'
 
 export const citiesModel = {
     state: {
@@ -29,6 +29,10 @@ export const citiesModel = {
             const weather = await fetchWeather(city);
             newCitiesInformations[city] = weather;
             dispatch.citiesModel.setCitiesInformations(newCitiesInformations);
+        },
+        async showGeoloc({lat, long}) {
+            const weather = await fetchGeolocWeather(lat, long);
+            dispatch.citiesModel.setGeoloc(weather);
         }
     })
 }

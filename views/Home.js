@@ -3,16 +3,18 @@ import { View, Text, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { ListItem } from 'react-native-elements'
 import Header from './Header'
+import LocationResults from '../components/LocationResults'
 
 const Home = props => {
 
-    console.log(props.citiesInformations);
+    // console.log(props.citiesInformations);
 
     const list = props.cities;
 
     return (
         <View>
             <Header />
+            <LocationResults />
             {
                 list.map((city) => (
                     <ListItem key={props.citiesInformations[city].id} bottomDivider>
