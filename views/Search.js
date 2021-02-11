@@ -1,4 +1,5 @@
 import React from 'react'
+import { useIsFocused } from '@react-navigation/native'
 import { View, TextInput } from 'react-native'
 import WeatherResults from '../components/WeatherResults'
 import ForecastResults from '../components/ForecastResults'
@@ -8,7 +9,8 @@ import { Button } from 'react-native-elements';
 
 import Header from './Header'
 
-export default class Search extends React.Component {
+
+class Search extends React.Component {
 
     constructor(props) {
         super(props)
@@ -41,36 +43,48 @@ export default class Search extends React.Component {
     }
 
     render() {
+        const { isFocused } = this.props;
+
         const searchIcon = <Icon name="search-location" size={45} color="black" />;
         return (
             <View>
-                <Header style={{ marginBottom: 10 }} />
-                <View style={{ marginHorizontal: 10, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
-                    <TextInput
-                        onChangeText={(text) => this.setLocation(text)}
-                        style={{ borderColor: 'gray', marginBottom: 20, flex: 0.9, fontSize: 20 }}
-                        placeholder="Recherchez une ville"
-                        autoFocus={true}
+                <View>
+
+                    <Header style={{ marginBottom: 10 }} />
+                    <View style={{ marginHorizontal: 10, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
+                        <TextInput
+                            onChangeText={(text) => this.setLocation(text)}
+                            style={{ borderColor: 'gray', marginBottom: 20, flex: 0.9, fontSize: 20 }}
+                            placeholder="Recherchez une ville"
+                            autoFocus={true}
+                        />
+
+                        <Button
+                            type="clear"
+                            onPress={() => this.getWeather() && this.getForecast()}
+                            icon={searchIcon} />
+                    </View>
+
+                    <WeatherResults
+                        location={this.state.location}
+                        reportWeather={this.state.reportWeather}
+                        style={{ marginVertical: 20 }}
                     />
 
-                    <Button
-                        type="clear"
-                        onPress={() => this.getWeather() && this.getForecast()}
-                        icon={searchIcon} />
+                    <ForecastResults
+                        location={this.state.location}
+                        reportForecast={this.state.reportForecast}
+                        style={{ marginVertical: 20 }}
+                    />
                 </View>
 
-                <WeatherResults
-                    location={this.state.location}
-                    reportWeather={this.state.reportWeather}
-                    style={{ marginVertical: 20 }}
-                />
-
-                <ForecastResults
-                    location={this.state.location}
-                    reportForecast={this.state.reportForecast}
-                    style={{ marginVertical: 20 }}
-                />
             </View>
         )
     }
+}
+
+export default function (props) {
+    const isFocused = useIsFocused();
+
+    return <Search {...props} isFocused={isFocused} />;
 }

@@ -44,7 +44,7 @@ const LocationResults = props => {
     }, []);
 
     const detail = props.geoloc;
-
+   
     return (
         <View>
             {detail.name ?
