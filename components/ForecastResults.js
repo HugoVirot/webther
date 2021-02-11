@@ -6,6 +6,7 @@ import ForecastCard from './ForecastCard';
 export default class Results extends React.Component {
 
     render() {
+        console.log(this.props.reportForecast);
         if (this.props.reportForecast) {
             const objForecast = this.props.reportForecast;
 
@@ -22,7 +23,7 @@ export default class Results extends React.Component {
                                 horizontal={true}
                                 data={objForecast.list}
                                 style={{ marginTop: 20 }}
-                                keyExtractor={item => item.dt_text}
+                                keyExtractor={item => item.dt.toString()}
                                 renderItem={({ item }) =>
                                     <ForecastCard
                                         detail={item}

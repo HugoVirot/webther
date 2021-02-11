@@ -1,6 +1,6 @@
 import React from 'react'
 import { useIsFocused } from '@react-navigation/native'
-import { View, TextInput } from 'react-native'
+import { View, TextInput, ScrollView } from 'react-native'
 import WeatherResults from '../components/WeatherResults'
 import ForecastResults from '../components/ForecastResults'
 import { fetchWeather, fetchForecast } from '../components/APIrequests'
@@ -43,13 +43,15 @@ class Search extends React.Component {
     }
 
     render() {
+        // focus
         const { isFocused } = this.props;
 
+        // icon
         const searchIcon = <Icon name="search-location" size={45} color="black" />;
+
         return (
             <View>
-                <View>
-
+                <ScrollView>
                     <Header style={{ marginBottom: 10 }} />
                     <View style={{ marginHorizontal: 10, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
                         <TextInput
@@ -57,6 +59,7 @@ class Search extends React.Component {
                             style={{ borderColor: 'gray', marginBottom: 20, flex: 0.9, fontSize: 20 }}
                             placeholder="Recherchez une ville"
                             autoFocus={true}
+                            onSubmitEditing={() => this.getWeather() && this.getForecast()}
                         />
 
                         <Button
@@ -76,8 +79,7 @@ class Search extends React.Component {
                         reportForecast={this.state.reportForecast}
                         style={{ marginVertical: 20 }}
                     />
-                </View>
-
+                </ScrollView>
             </View>
         )
     }

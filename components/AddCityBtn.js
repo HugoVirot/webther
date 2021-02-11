@@ -1,35 +1,39 @@
 import React from 'react'
-import { Button } from 'react-native'
+import { Button, RefreshControl } from 'react-native'
 import { connect } from 'react-redux'
 
 
+const addCityBtn = props => {
 
-class addCityBtn extends React.Component {
+    // scroll refresh
+    const wait = (timeout) => {
+        return new Promise(resolve => setTimeout(resolve, timeout));
+    }
+    const [refreshing, setRefreshing] = React.useState(false);
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        wait(2000).then(() => setRefreshing(false));
+    }, []);
 
-    constructor(props) {
-        super(props)
-    };
+    function handleSubmit() {
 
-    handleSubmit() {
-
-        const { dispatch } = this.props;
+        const { dispatch } = props;
 
         dispatch({
             type: 'citiesModel/addCity',
             payload: {
-                city: this.props.searchedCity
+                city: props.searchedCity
             }
         })
+        setRefreshing(true);
     };
 
-    render() {
-        return (
-            <Button
-                type="clear"
-                onPress={() => this.handleSubmit()}
-                title="+ Sauvegarder la ville" />
-        );
-    }
+    return (
+        <Button
+            type="clear"
+            onPress={() => handleSubmit()}
+            title="+ Sauvegarder la ville" />
+    );
 }
 
 export default connect(({ citiesModel }) => ({ citiesModel }))(addCityBtn);

@@ -20,7 +20,7 @@ export default class ForecastCard extends React.Component {
 
         return (
             <View>
-                <Moment format="ddd">{this.props.detail.dt_txt}</Moment>
+                {/* <Moment format="ddd">{this.props.detail.dt_txt}</Moment> */}
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Image style={{ width: 100, height: 100 }} source={{ uri: "https://openweathermap.org/img/w/" + this.props.detail.weather[0].icon + ".png" }} />
                     <Text>{time}</Text>
