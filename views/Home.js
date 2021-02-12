@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { ListItem, Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+
 import Header from './Header'
 import LocationResults from '../components/LocationResults'
 
@@ -25,7 +26,6 @@ const Home = props => {
 
     // remove city
     function handleRemove(cityName) {
-
         const { dispatch } = props;
 
         dispatch({
@@ -34,8 +34,8 @@ const Home = props => {
                 city: cityName
             }
         })
-        setRefreshing(true);
     };
+
 
     // const for 
     const list = props.cities;

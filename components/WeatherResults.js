@@ -26,7 +26,7 @@ const WeatherResults = props => {
                         </Text>
 
                         {props.cities.includes(objWeather.name) ?
-                        <RemoveCityBtn searchedcCity={objWeather.name} />
+                        <RemoveCityBtn searchedCity={objWeather.name} />
                         :
                         <AddCityBtn searchedCity={objWeather.name} />
                         }

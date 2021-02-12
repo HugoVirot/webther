@@ -1,19 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, RefreshControl } from 'react-native'
 import { connect } from 'react-redux'
+// import { Navigation } from 'react-native-navigation';
 
 
 const addCityBtn = props => {
-
-    // scroll refresh
-    const wait = (timeout) => {
-        return new Promise(resolve => setTimeout(resolve, timeout));
-    }
-    const [refreshing, setRefreshing] = React.useState(false);
-    const onRefresh = React.useCallback(() => {
-        setRefreshing(true);
-        wait(2000).then(() => setRefreshing(false));
-    }, []);
 
     function handleSubmit() {
 
@@ -25,8 +16,12 @@ const addCityBtn = props => {
                 city: props.searchedCity
             }
         })
-        setRefreshing(true);
+        // Navigation.push(props.componentId, {
+        //     component: {
+        //       name: 'Search',
+        //     }})
     };
+
 
     return (
         <Button
