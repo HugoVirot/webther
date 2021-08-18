@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react'
-import { Button, RefreshControl } from 'react-native'
+import React from 'react'
+import { Button } from 'react-native'
 import { connect } from 'react-redux'
-// import { Navigation } from 'react-native-navigation';
-
 
 const addCityBtn = props => {
 
@@ -16,12 +14,7 @@ const addCityBtn = props => {
                 city: props.searchedCity
             }
         })
-        // Navigation.push(props.componentId, {
-        //     component: {
-        //       name: 'Search',
-        //     }})
     };
-
 
     return (
         <Button

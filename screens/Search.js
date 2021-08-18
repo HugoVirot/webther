@@ -3,12 +3,10 @@ import { useIsFocused } from '@react-navigation/native'
 import { View, TextInput, ScrollView } from 'react-native'
 import WeatherResults from '../components/WeatherResults'
 import ForecastResults from '../components/ForecastResults'
-import { fetchWeather, fetchForecast } from '../components/APIrequests'
+import { fetchWeather, fetchForecast } from '../utils/APIrequests'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Button } from 'react-native-elements';
-
-import Header from './Header'
-
+import Header from '../components/Header'
 
 class Search extends React.Component {
 
@@ -56,7 +54,7 @@ class Search extends React.Component {
                     <View style={{ marginHorizontal: 10, flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
                         <TextInput
                             onChangeText={(text) => this.setLocation(text)}
-                            style={{ borderColor: 'gray', marginBottom: 20, flex: 0.9, fontSize: 20 }}
+                            style={{ borderColor: 'gray', marginTop:30, marginBottom: 20, flex: 0.9, fontSize: 20 }}
                             placeholder="Recherchez une ville"
                             autoFocus={true}
                             onSubmitEditing={() => this.getWeather() && this.getForecast()}

@@ -19,13 +19,12 @@ export default class ForecastCard extends React.Component {
         Moment.globalLocale = 'fr';
 
         return (
-            <View>
-                {/* <Moment format="ddd">{this.props.detail.dt_txt}</Moment> */}
+            <View style={{ margin: 20 }}>
+                <Text style={{ fontSize: 20, textAlign: 'center' }}>{this.props.detail.dt_txt.split(' ')[0]}</Text>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Image style={{ width: 100, height: 100 }} source={{ uri: "https://openweathermap.org/img/w/" + this.props.detail.weather[0].icon + ".png" }} />
-                    <Text>{time}</Text>
+                    <Text style={{ fontSize: 20 }}>{time}</Text>
                 </View>
-                <Divider style={{ backgroundColor: '#dfe6e9', marginVertical: 20 }} />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <Text>{this.props.detail.weather[0].description}</Text>
                     <Text>{Math.round(this.props.detail.main.temp * 10) / 10}&#8451;</Text>

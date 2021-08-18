@@ -1,4 +1,4 @@
-import { fetchWeather, fetchGeolocWeather } from '../components/APIrequests'
+import { fetchWeather, fetchGeolocWeather } from '../utils/APIrequests'
 
 export const citiesModel = {
     state: {

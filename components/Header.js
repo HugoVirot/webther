@@ -15,25 +15,14 @@ const HeaderUserName = () => {
     const [userName, setName] = useState("");
     return (
         <View>
-            {userName !== null ?
                 <Header
-                    placement="left"
-                    centerComponent={{ text: 'Voici votre météo ' + userName, style: { color: '#fff' } }}
+                    placement="center"
+                    centerComponent={{ text: userName !== null ? 'Bienvenue ' + userName + " !" : 'Utlisateur inconnu', style: { color: '#fff', fontSize: 20 } }}
                     containerStyle={{
-                        backgroundColor: '#7abaf9',
-                        height: 60
+                        backgroundColor: 'darkblue',
+                        height: 70
                     }}
                 />
-                :
-                <Header
-                    placement="left"
-                    centerComponent={{ text: 'Voici votre météo', style: { color: '#fff' } }}
-                    barStyle="dark-content"
-                    containerStyle={{
-                        backgroundColor: '#7abaf9'
-                    }}
-                />
-            }
         </View>
     )
 }

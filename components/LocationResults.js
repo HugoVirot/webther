@@ -20,7 +20,7 @@ const LocationResults = props => {
 
             let location = await Location.getCurrentPositionAsync({});
             setLocation(location);
-            let locationText = 'Waiting..';
+            let locationText = 'Waiting...';
 
             if (errorMsg) {
                 locationText = errorMsg;
@@ -69,8 +69,8 @@ const LocationResults = props => {
                     </View>
                 </View>
                 :
-                <View style={{ margin: 15 }}>
-                    <Text>Acceptez la géolocalisation pour voir les résultats sur votre emplacement</Text>
+                <View style={{ margin: 30 }}>
+                    <Text>Acceptez la géolocalisation pour voir la météo locale</Text>
                 </View>
             }
 

@@ -12,23 +12,24 @@ export default class Results extends React.Component {
 
             if (objForecast.cod == '404') {
                 return (
-                    <Text>Prévisions manquantes...</Text>
+                    <Text>Pas de prévisions disponibles</Text>
                 )
             }
             else {
                 return (
                     <SafeAreaView style={{ marginTop: 30 }}>
-                        <ScrollView horizontal={true}>
+                        <Text style={{ textAlign: 'center' }}>Dans les prochaines heures</Text>
+                        <ScrollView>
                             <FlatList
                                 horizontal={true}
                                 data={objForecast.list}
-                                style={{ marginTop: 20 }}
                                 keyExtractor={item => item.dt.toString()}
                                 renderItem={({ item }) =>
                                     <ForecastCard
+                                        style={{ padding: 20, margin : 20 }}
                                         detail={item}
                                         location={objForecast.city.name} />
-                                    }
+                                }
                             />
                         </ScrollView>
                     </SafeAreaView>

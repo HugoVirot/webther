@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, TextInput } from 'react-native'
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux'
-import HeaderUserName from './Header'
+import Header from '../components/Header'
 
 const User = (props) => {
 
@@ -21,11 +21,11 @@ const User = (props) => {
 
     return (
         <View>
-            <HeaderUserName />
+            <Header />
             <TextInput
                 onChangeText={(text) => setNameInput(text)}
                 value={nameInput}
-                style={{ borderColor: 'gray', marginBottom: 20, flex: 0.9, fontSize: 20 }}
+                style={{ borderColor: 'gray', margin: 30, flex: 0.9, fontSize: 20 }}
                 placeholder="Tapez votre nom"
                 autoFocus={true}
             />
