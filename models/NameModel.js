@@ -1,7 +1,7 @@
-
 import AsyncStorage from '@react-native-async-storage/async-storage'
     
 export const nameModel = {
+
     state: {
         userName: '',
     },
@@ -11,7 +11,9 @@ export const nameModel = {
             return {...state, userName}
         },
     },
+
     effects: (dispatch) => ({
+        
         async storeName(payload) {
             const { userName } = payload;
 
@@ -22,6 +24,7 @@ export const nameModel = {
                     type: "nameModel/setName",
                     payload: { userName }
                 };
+                
                 dispatch(action);
             }
         }

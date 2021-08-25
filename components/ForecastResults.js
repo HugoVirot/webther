@@ -1,14 +1,14 @@
 import React from 'react'
 import { Text, SafeAreaView, FlatList, ScrollView } from 'react-native'
 import ForecastCard from './ForecastCard';
-
+import styleSheet from '../style/StyleSheet';
 
 export default class Results extends React.Component {
 
     render() {
-        console.log(this.props.reportForecast);
-        if (this.props.reportForecast) {
-            const objForecast = this.props.reportForecast;
+        //console.log(this.props.reportForecast);
+        if (this.props.cityForecast) {
+            const objForecast = this.props.cityForecast;
 
             if (objForecast.cod == '404') {
                 return (
@@ -18,7 +18,7 @@ export default class Results extends React.Component {
             else {
                 return (
                     <SafeAreaView style={{ marginTop: 30 }}>
-                        <Text style={{ textAlign: 'center' }}>Dans les prochaines heures</Text>
+                        <Text style={styleSheet.title}>Prévisions sur 5 jours</Text>
                         <ScrollView>
                             <FlatList
                                 horizontal={true}

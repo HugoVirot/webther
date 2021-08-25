@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const addCityBtn = props => {
 
-    function handleSubmit() {
+    function addCity() {
 
         const { dispatch } = props;
 
@@ -14,14 +14,21 @@ const addCityBtn = props => {
                 city: props.searchedCity
             }
         })
+
+        console.log(props.cities)
     };
 
     return (
         <Button
             type="clear"
-            onPress={() => handleSubmit()}
+            onPress={() => addCity()}
             title="+ Sauvegarder la ville" />
     );
 }
 
-export default connect(({ citiesModel }) => ({ citiesModel }))(addCityBtn);
+
+const mapStateToProps = (state) => {
+    return state.citiesModel
+}
+
+export default connect(mapStateToProps)(addCityBtn)

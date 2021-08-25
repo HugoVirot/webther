@@ -28,4 +28,10 @@ const RemoveCityBtn = props => {
     );
 }
 
-export default connect(({ citiesModel }) => ({ citiesModel }))(RemoveCityBtn);
+const mapStateToProps = (state) => {
+    return state.citiesModel
+  }
+  
+export default connect(mapStateToProps)(RemoveCityBtn)
+
+//export default connect(({ citiesModel }) => ({ citiesModel }))(RemoveCityBtn);

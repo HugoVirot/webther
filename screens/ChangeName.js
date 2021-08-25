@@ -4,8 +4,9 @@ import { Button } from 'react-native-elements';
 import { connect } from 'react-redux'
 import Header from '../components/Header'
 
-const User = (props) => {
+const ChangeName = (props) => {
 
+    // on stocke le nouveau nom dans le state via la fonction dispatch, qui modifie le nameModel
     function handleSubmit() {
         dispatch({
             type: 'nameModel/storeName',
@@ -26,16 +27,23 @@ const User = (props) => {
                 onChangeText={(text) => setNameInput(text)}
                 value={nameInput}
                 style={{ borderColor: 'gray', margin: 30, flex: 0.9, fontSize: 20 }}
-                placeholder="Tapez votre nom"
+                placeholder="Entrez votre nom"
                 autoFocus={true}
             />
 
             <Button
-                type="clear"
+                color="darkblue"
                 onPress={() => handleSubmit()}
-                title="Définir le nom d'utilisateur" />
+                title="Valider" />
         </View>
     )
 }
 
-export default connect((nameModel) => ({ nameModel }))(User);
+const mapStateToProps = (state) => {
+    return state.nameModel
+  }
+  
+export default connect(mapStateToProps)(ChangeName)
+
+// autre syntaxe : 
+// export default connect((nameModel) => ({ nameModel }))(ChangeName);

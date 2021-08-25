@@ -33,7 +33,7 @@ const LocationResults = props => {
                 const { dispatch } = props;
 
                 dispatch({
-                    type: 'citiesModel/showGeoloc',
+                    type: 'citiesModel/getLocalWeather',
                     payload: {
                         lat: lat,
                         long: long,
@@ -43,23 +43,21 @@ const LocationResults = props => {
         })();
     }, []);
 
-    const detail = props.geoloc;
+    const detail = props.localWeather;
    
     return (
         <View>
             {detail.name ?
-                <View style={{ flexDirection: 'row', margin: 15 }}>
+                <View style={{ flexDirection: 'row', margin: 10 }}>
+                    <View style={{ marginStart: 20 }}>
+                        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent : 'space-between'}}>
+                        <Icon name="map-marker-radius-outline" size={80} color="#47B1E1" />
 
-                    <Icon name="map-marker-radius-outline" size={100} color="#6767ac" />
-
-                    <View style={{ marginStart: 10 }}>
-
-                        <View style={{flexDirection: 'row'}}>
                             <Text style={{ fontWeight: 'bold', fontSize: 30 }}>{detail.name}</Text>
-                            <Image source={{ uri: `http://openweathermap.org/img/w/${detail.weather[0].icon}.png` }} style={{ height: 50, width: 50, marginStart: 10 }} />
+                            <Image source={{ uri: `http://openweathermap.org/img/w/${detail.weather[0].icon}.png` }} style={{ height: 100, width: 100, marginStart: 10 }} />
                         </View>
 
-                        <Text style={{fontSize: 15, marginTop: -13}}>
+                        <Text style={{fontSize: 20, marginTop: -20, marginBottom: 20}}>
                             {detail.weather[0].description}
                         </Text>
                         <Text style={{color: 'grey', fontStyle: 'italic'}}>
